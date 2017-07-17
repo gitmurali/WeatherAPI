@@ -31,21 +31,25 @@ class WeatherList extends Component {
 	}
 
 	render() {
-		return (
-			<table className="table table-hover">
-				<thead>
+		if(this.props.weather){
+			return (
+				<table className="table table-hover">
+					<thead>
 					<tr>
 						<th>City</th>
 						<th>Temperature (K)</th>
 						<th>Pressure (hPa)</th>
 						<th>Humidity (%)</th>
 					</tr>
-				</thead>
-				<tbody>
+					</thead>
+					<tbody>
 					{this.props.weather.map(this.renderWeather)}
-				</tbody>
-			</table>
-		);
+					</tbody>
+				</table>
+			);
+		} else {
+			return <div>Loading..</div>
+		}
 	}
 }
 
